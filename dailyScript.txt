@@ -1,0 +1,20 @@
+dir=$1
+outDir=$2
+mergeName=$3
+master=$4
+
+i=1
+for file in $dir/*
+do
+java Main < $file > output-$i
+mv output-$i $outDir
+((i++))
+done
+
+java MergedTransaction
+cp /Users/ericbolboa/Desktop/AllFiles/MergedEventTransaction.txt $mergeName
+mv $mergeName mergedEvents
+
+java callBackEnd
+cp /Users/ericbolboa/Desktop/AllFiles/MasterEventsFile.txt $master
+mv $master masterEvents

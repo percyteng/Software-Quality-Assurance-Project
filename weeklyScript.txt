@@ -1,0 +1,10 @@
+dir=$1
+i=1
+mkdir mergedEvents
+mkdir masterEvents
+for file in $dir/*
+do
+mkdir day_output-$i
+./dailyScript $file day_output-$i merge-$i master-$i
+((i++))
+done 
